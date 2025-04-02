@@ -28,8 +28,10 @@ export const HomeNavbar = () => {
 
         {/* Right Side */}
         <div className="flex flex-shrink-0 items-center gap-4">
-          {/* Theme Toggle */}
-          <ThemeToggle />
+          {/* Theme Toggle: hidden on lower than md size screens */}
+          <div className="hidden md:flex">
+            <ThemeToggle />
+          </div>
 
           {/* Auth Button */}
           <AuthButton />
