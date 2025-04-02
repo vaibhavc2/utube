@@ -39,7 +39,7 @@ export const PersonalSection = () => {
   const clerk = useClerk();
   const { isSignedIn } = useAuth();
 
-  const { theme, systemTheme } = useTheme();
+  const { resolvedTheme } = useTheme();
 
   return (
     <SidebarGroup>
@@ -59,11 +59,7 @@ export const PersonalSection = () => {
                     return clerk.openSignIn({
                       fallbackRedirectUrl: item.url,
                       appearance: {
-                        baseTheme:
-                          (theme === "system" && systemTheme === "dark") ||
-                          theme === "dark"
-                            ? dark
-                            : undefined
+                        baseTheme: resolvedTheme === "dark" ? dark : undefined
                       }
                     });
                   }
@@ -79,11 +75,7 @@ export const PersonalSection = () => {
                       return clerk.openSignIn({
                         fallbackRedirectUrl: item.url,
                         appearance: {
-                          baseTheme:
-                            (theme === "system" && systemTheme === "dark") ||
-                            theme === "dark"
-                              ? dark
-                              : undefined
+                          baseTheme: resolvedTheme === "dark" ? dark : undefined
                         }
                       });
                     }

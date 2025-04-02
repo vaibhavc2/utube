@@ -7,18 +7,20 @@ import { useTheme } from "next-themes";
 import { dark } from "@clerk/themes";
 
 export function AuthButton() {
-  const { theme, systemTheme } = useTheme();
+  const { resolvedTheme } = useTheme();
 
   return (
     <>
       {/* TODO: add menu items for Studio and User profile */}
       <SignedIn>
         <UserButton
+          userProfileProps={{
+            appearance: {
+              baseTheme: resolvedTheme === "dark" ? dark : undefined
+            }
+          }}
           appearance={{
-            baseTheme:
-              (theme === "system" && systemTheme === "dark") || theme === "dark"
-                ? dark
-                : undefined
+            baseTheme: resolvedTheme === "dark" ? dark : undefined
           }}
         />
       </SignedIn>
@@ -27,10 +29,7 @@ export function AuthButton() {
         <SignInButton
           mode="modal"
           appearance={{
-            baseTheme:
-              (theme === "system" && systemTheme === "dark") || theme === "dark"
-                ? dark
-                : undefined
+            baseTheme: resolvedTheme === "dark" ? dark : undefined
           }}
         >
           <Button
