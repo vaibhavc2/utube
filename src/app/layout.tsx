@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import { ThemeProvider } from "#/components/ui/theme-provider";
 import { ClerkProvider } from "@clerk/nextjs";
-
+import { TRPCReactProvider } from "#/trpc/client";
 import "./globals.css";
 
 const inter = Inter({
@@ -30,7 +30,7 @@ export default function RootLayout({
             enableSystem
             disableTransitionOnChange
           >
-            {children}
+            <TRPCReactProvider>{children}</TRPCReactProvider>
           </ThemeProvider>
         </body>
       </html>
