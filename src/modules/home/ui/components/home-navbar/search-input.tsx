@@ -15,7 +15,7 @@ export const SearchInput = () => {
 
       <button
         type="submit"
-        className="rounded-r-full border border-l-0 px-5 py-2.5 not-dark:bg-gray-100 not-dark:hover:bg-gray-200 disabled:cursor-not-allowed disabled:opacity-50 dark:bg-neutral-800 dark:hover:bg-neutral-700 cursor-pointer"
+        className="cursor-pointer rounded-r-full border border-l-0 px-5 py-2.5 not-dark:bg-gray-100 not-dark:hover:bg-gray-200 disabled:cursor-not-allowed disabled:opacity-50 dark:bg-neutral-800 dark:hover:bg-neutral-700"
       >
         <SearchIcon className="size-5" />
       </button>
